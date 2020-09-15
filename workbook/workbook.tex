@@ -570,18 +570,18 @@ to list the files in the current directory. If you try this now you will be able
 \paragraph{} Python\footnote{\url{https://www.python.org/}} is a very useful programming language and much of its popularity stems from the fact that it is easy to get a lot done with having to write too much code. We already have Python installed on the dev server ready to use. We can run Python by typing its name in the terminal, e.g.
 
 \begin{lstlisting}[style=DOS]
-$ python3
-Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-[GCC 9.3.0] on linux
+$ python
+Python 2.7.10 (default, May 25 2015, 09:55:35) 
+[GCC 4.9.1] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 \end{lstlisting}
 \paragraph{} This starts the Python Read-Evaluate-Print-Loop or REPL in which we can type Python commands and get immediate output. To exit the REPL we type `quit()' which will return us to the Linux shell, e.g.
 
 \begin{lstlisting}[style=DOS]
-$ python3
-Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-[GCC 9.3.0] on linux
+$ python
+Python 2.7.10 (default, May 25 2015, 09:55:35) 
+[GCC 4.9.1] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
 $ 
@@ -590,9 +590,9 @@ $
 \paragraph{} Here is the traditional `Hello Napier' program in Python (try it out for yourself):
 
 \begin{lstlisting}[style=DOS]
-$ python3
-Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-[GCC 9.3.0] on linux
+$ python
+Python 2.7.10 (default, May 25 2015, 09:55:35) 
+[GCC 4.9.1] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print "Hello Napier"
 Hello Napier
@@ -658,7 +658,7 @@ print "Hello Napier"
 \paragraph{} We should only need to go through this process once. We are going to install some bits of software to enable us to manage python libraries. Flask is a library, but not the only one that we'll use, so having a way to manage different versions of our libraries is a useful thing. It's also the `proper way to do things'. We first need to install Python pip:
 
 \begin{lstlisting}[style=DOS]
-    $ sudo apt install python3-pip
+    $ sudo apt install python-pip
 \end{lstlisting}
 
 \paragraph{} Enter your password when prompted and agree ('y') when asked if you want to continue. This will take a few moment to install your software. The command we've just used install a program called pip. We use pip to install and manager libraries of Python sourcecode, such as the web library (Flask) that we're using in this module. We also need a second Python tool that is used to manage sets of Python libraries, so that we can use different versions of libraries for different projects without them all interfering with each other. This tool creates a `virtual environment' for our python web apps to run in and makes sure that the right versions of the right libraries are available to our web-app. The tool we'll use is called `VirtualEnv' and we can install it like so:
@@ -667,7 +667,7 @@ print "Hello Napier"
     $ sudo apt install virtualenv
 \end{lstlisting}
 
-\paragraph{} Again you might be asked for a password and whether you want to continue. Enter your password and type `y' when, and if, prompted. When this has complted successfully, we should have our prompt back and both the pip and virtualenv tools will now be available. Each can be invoked by typing it's name at the prompt. They won't do much yet though.
+\paragraph{} Again you might be asked for a password and whether you want to continue. Enter your password and type `y' when, and if, prompted. When this has complted successfully, we should have our prompt back and both the pip and virtualenv tools will now be available. Each can be invoked by typing it's name at the prompt. They won't do much yet though. One thing to note is that you might get a warning about Python 2.7 deprecation. Don't worry about this and don't try to upgrade your Python version. We'll just use Python 2.7 this trimester and I'll update everything for next academic session to Python 3.
 
 \paragraph{} We can create a virtualenv using the virtualenv command and passing it the name of the environment we want to create. For example, to create an environment called `test' we could do the following:
 \begin{lstlisting}[style=DOS]
@@ -704,7 +704,7 @@ print "Hello Napier"
 \paragraph{} Assuming that your virtualenv is activated, and that you've got Flask installed (reactivate your virtualenv if not), you can check whether a library, like Flask, is installed by running the following:
 
 \begin{lstlisting}[style=DOS]
-    $ python3 -c "import flask"
+    $ python -c "import flask"
 \end{lstlisting}
 
 \paragraph{} This just invokes Python and tell it to use the `compile' mode and to take the code that is passed in as an argument, in this case just the Python code to import the flask library. Importing is just our way to tell Python that we want to use a particular library for our code. If the library is available then there will be no output, so if there are no errors or other messages displayed then everything is fine and you can move on. If you do get errors or messages then it might be worth doing some background research to increase your knowledge before asking for help.
@@ -743,13 +743,13 @@ def hello_world():
 \paragraph{} Having set everything up we can now run our code by executing the following command in the same directory where hello.py is stored:
 
 \begin{lstlisting}[style=DOS]
-    $ python3 -m flask run --host=0.0.0.0
+    $ python -m flask run --host=0.0.0.0
 \end{lstlisting}
 
 \paragraph{} The host argument merely causes our web-app to be available publically. If we didn't include this then we would only be able to access the web-app from within the development server. Overall, this command causes our web-app to be run using the Flask development server and to be made available to be accessed from any IP address on the Internet. The Flask development server is really useful and fast for debugging during development. If everything goes well then you should see output similar to the following in your terminal:
 
 \begin{lstlisting}[style=DOS]
-    $ python3 -m flask run --host=0.0.0.0 * Serving Flask app "hello.py" (lazy loading)
+    $ python -m flask run --host=0.0.0.0 * Serving Flask app "hello.py" (lazy loading)
  * Environment: development
  * Debug mode: on
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -826,7 +826,7 @@ def hello():
 \paragraph{} When we run this Python flask app using the python command in the terminal, e.g.
 
 \begin{lstlisting}[style=DOS]
-$ python3 -m flask run --host=0.0.0.0 
+$ python -m flask run --host=0.0.0.0 
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
  * Restarting with stat
 \end{lstlisting}
@@ -1759,7 +1759,7 @@ if __name__ == "__main__":
 \paragraph{} Notice the `app.secret\_key' line. This is our secret key that is used to secure our session cookie so should really be stored securely, either in a config file or typed in by hand at startup, but never put in the code repository. However for demonstration purposes this is sufficient for now. The key above is sufficient for the lab work but you would generate a unique key for any real deployment and would keep it secret. You can generate a key easily using Python. Start the Python interpreter and use the os.urandom function to generate a new key that you can then copy and paste into your Flask app, e.g.
 
 \begin{lstlisting}
-$ Python3
+$ Python
 ...
 >>> import os
 >>> os.urandom(24)
